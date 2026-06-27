@@ -11,6 +11,8 @@ import authConfig from "./src/auth.config"
 const {auth}=NextAuth(authConfig)
 
 export default auth((req)=>{
+    console.log("PATH:", req.nextUrl.pathname);
+    console.log("AUTH:", req.auth);
     const {nextUrl}=req;
     const isLoggedIn=!!req.auth
 
