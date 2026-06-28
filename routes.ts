@@ -1,7 +1,10 @@
 /**
  * @type {string[]}
  */
-export const publicRoutes: string[] = [];
+export const publicRoutes: string[] = [
+   "/auth/sign-in",
+   "/auth/error",
+];
 
 /**
  * @type {string[]}
