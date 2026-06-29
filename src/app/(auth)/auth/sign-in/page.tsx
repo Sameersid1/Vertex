@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import SignInFormClient from '../../../../../modules/auth/actions/components/hooks/types/sign-in-form'
+import SignInFormClient from '../../../../../modules/components/sign-in-form'
 function page() {
   return (
     <>

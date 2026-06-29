@@ -9,7 +9,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     strategy: "jwt",
   },
   callbacks:{
-    async signIn({user,account}){
+    async signIn({user,account,profile}){
       if(!user || !account) return false;
 
       const existingUser=await db.user.findUnique({
@@ -77,10 +77,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       return true
     },
     async jwt({token}){
+      console.log("JWT TOKEN BEFORE:", token);
       if(!token.sub)  return token;
       const existingUser=await getUserById(token.sub)
       if(!existingUser) return token;  //user deleted return old token
-
+      console.log("DB USER:", existingUser);
       token.name=existingUser.name
       token.email=existingUser.email
       token.role=existingUser.role
