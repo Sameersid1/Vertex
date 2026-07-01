@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import {auth} from "@/auth"
+import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/providers/theme-providers";
 import {SessionProvider} from "next-auth/react"
 const geistSans = Geist({
@@ -41,7 +42,9 @@ export default async function RootLayout({
               defaultTheme="system"
               enableSystem
               disableTransitionOnChange>
+                <TooltipProvider>
                 {children}
+                </TooltipProvider>
             </ThemeProvider>     
           </SessionProvider>
         </body>
