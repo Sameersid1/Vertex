@@ -188,7 +188,7 @@ const filteredTemplates=templates.filter((template)=>{
       const template = templates.find((t) => t.id === selectedTemplate);
       onSubmit({
         title:projectName || `New ${template?.name} Project`,
-        template:templateMap[selectedTemplate] || "React",
+        template:templateMap[selectedTemplate] || "REACT",
         description:template?.description
       })
 

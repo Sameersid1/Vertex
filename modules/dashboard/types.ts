@@ -10,10 +10,10 @@ export interface User{
 export interface Project{
     id:string
     title:string
-    description:string
+    description:string | null
     template:string
     createdAt:Date
     updatedAt:Date
     user:User
-    // Starmark:{isMarked:boolean}[]
+    starmark:{isMarked:boolean}[]
 }
