@@ -31,6 +31,7 @@ model User{
   role UserRole @default(USER)
 
   myPlayground Playground[]
+  staredPlayground StarMark[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -52,7 +53,16 @@ model Account {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
  
   @@unique([provider, providerAccountId])
+  @@index([userId])
   @@map("accounts")
+}
+enum Templates{
+  REACT
+  NEXTJS
+  EXPRESS
+  VUE
+  HONO
+  ANGULAR
 }
 model Session {
   id           String   @id @default(cuid()) @map("_id")
@@ -64,15 +74,6 @@ model Session {
 
   @@map("sessions")
 }
-
-enum Templates{
-  REACT
-  NEXTJS
-  EXPRESS
-  VUE
-  HONO
-  ANGULAR 
-} 
 model Playground{
   id String @id @default(cuid()) @map("_id")
   title String
@@ -80,9 +81,23 @@ model Playground{
   template Templates @default(REACT)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  starmark StarMark[]
+  userId String 
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  userId String
-  user User @relation(fields:[userId],references:[id],onDelete:Cascade)
-  //todo templateFiles
+  @@map("playgrounds")
 }
 
+model StarMark{
+  id String @id @default(cuid()) @map("_id")
+  userId String
+  playgroundId String
+  isMarked Boolean
+  createdAt   DateTime @default(now())
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  playground Playground @relation(fields: [playgroundId], references: [id], onDelete: Cascade)
+  
+  @@unique([userId,playgroundId])
+
+  @@map("starMarks")
+}

@@ -5,6 +5,7 @@ import {auth} from "@/auth"
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/providers/theme-providers";
 import {SessionProvider} from "next-auth/react"
+import { Toaster } from "sonner";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -43,7 +44,13 @@ export default async function RootLayout({
               enableSystem
               disableTransitionOnChange>
                 <TooltipProvider>
-                {children}
+                  <Toaster/>
+                  <div className="flex flex-col min-h-screen">
+                    <div className="flex-1">
+                    {children}
+                    </div>
+                  </div>
+                
                 </TooltipProvider>
             </ThemeProvider>     
           </SessionProvider>
