@@ -63,7 +63,7 @@ type TemplateItem = TemplateFile | TemplateFolder;
 
 interface TemplateFileTreeProps {
   data: TemplateItem;
-  onFileSelect?: (file: TemplateFile) => void;
+  onFileSelect?: (file: TemplateFile) => void; //child cannot change parwnts state  -- child only says User clicked App.tsx parents decide what to do
   selectedFile?: TemplateFile;
   title?: string;
   onAddFile?: (file: TemplateFile, parentPath: string) => void;
@@ -132,8 +132,8 @@ export function TemplateFileTree({
   };
 
   return (
-    <Sidebar>
-      <SidebarContent>
+    <Sidebar variant="inset">
+      <SidebarContent >
         <SidebarGroup>
           <SidebarGroupLabel>{title}</SidebarGroupLabel>
           <DropdownMenu>
@@ -344,7 +344,7 @@ function TemplateNode({
   } else {
     const folder = item as TemplateFolder;
     const folderName = folder.folderName;
-    const currentPath = path ? `${path}/{folderName}` : folderName;
+    const currentPath = path ? `${path}/${folderName}` : folderName;
 
     const handleAddFile = () => {
       setIsNewFileDialogOpen(true);
