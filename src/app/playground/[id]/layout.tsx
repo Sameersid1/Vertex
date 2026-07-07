@@ -6,7 +6,7 @@ function PlaygroundLayout({
     children:React.ReactNode;
 }) {
   return (
-    <SidebarProvider>
+    <SidebarProvider defaultOpen={true}>
         {children}
     </SidebarProvider>
   )
