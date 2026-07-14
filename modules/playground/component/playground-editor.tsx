@@ -23,7 +23,7 @@ const  PlaygroundEditor=({
         console.log("Editor instance mounted:",!!editorRef.current)
 
         editor.updateOptions({
-            ...defaultEditorOptions
+            ...defaultEditorOptions         //font size tab size ..............
         })
 
         configureMonaco(monaco)
