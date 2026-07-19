@@ -18,8 +18,8 @@ Build, edit, preview, and collaborate on projects directly in your browser with 
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/github/stars/yourusername/vertex-forge?style=social" />
-  <img src="https://img.shields.io/github/forks/yourusername/vertex-forge?style=social" />
+  <img src="https://img.shields.io/github/stars/Sameersid1/vertex-forge?style=social" />
+  <img src="https://img.shields.io/github/forks/Sameersid1/vertex-forge?style=social" />
 </p>
 
 </div>
